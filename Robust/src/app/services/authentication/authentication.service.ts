@@ -22,14 +22,18 @@ export class AuthenticationService {
             loginApiUrl = '/api/authenticate';
         }
         else {
-            loginApiUrl = `${this.apiUrl}/account/login`;
+            loginApiUrl = `${this.apiUrl}/connect/token`;
         }
 
-        return this.http.post(loginApiUrl, JSON.stringify({ username: username, password: password }))
+        return this.http.post(loginApiUrl, JSON.stringify(
+            { 
+                username: username, password: password ,scope: 'RobustAPI' ,'grant-type':'password'
+            }))
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 let user = response.json();
-                if (user && user.token) {
+                console.log(user)
+                if (user && user.access_token) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify(user));
                 }

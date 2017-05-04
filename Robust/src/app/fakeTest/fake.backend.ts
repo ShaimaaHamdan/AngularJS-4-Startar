@@ -30,7 +30,7 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
                             username: user.username,
                             firstName: user.firstName,
                             lastName: user.lastName,
-                            token: 'fake-jwt-token'
+                            access_token: 'fake-jwt-token'
                         }
                     })));
                 } else {
