@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 export class AppSetting {
 
   // we will using task to replace this url
-  public static apiendpoint = 'http://localhost:63517';
+  public static apiendpoint = 'http://52.166.73.135/';
   public static mocktestapi = false;
 
 }
