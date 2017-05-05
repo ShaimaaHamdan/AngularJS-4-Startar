@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
 
@@ -10,11 +10,15 @@ export class AuthenticationService {
 
     isTestApi: boolean;
     apiUrl: string;
-
+    private headers: Headers;
+    private options: RequestOptions;
     constructor(private http: Http) {
         this.isTestApi = AppSetting.mocktestapi;
         this.apiUrl = AppSetting.apiendpoint;
+        this.headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        this.options = new RequestOptions({ headers: this.headers });
     }
+
 
     login(username: string, password: string) {
         var loginApiUrl = '';
@@ -24,12 +28,22 @@ export class AuthenticationService {
         else {
             loginApiUrl = `${this.apiUrl}/connect/token`;
         }
+       
+       const params: any = {
+            client_id: 'clientPassword',
+            client_secret: 'secret',
+            grant_type: 'password',
+            username: username,
+            password: password,
+            scope: 'RobustAPI'
+        };
 
-        return this.http.post(loginApiUrl, JSON.stringify(
-            { 
-                username: username, password: password ,scope: 'RobustAPI' ,'grant-type':'password'
-            }))
+        const body: string = this.encodeParams(params);
+
+        return this.http.post(loginApiUrl, body, this.options)
+
             .map((response: Response) => {
+                console.log(response)
                 // login successful if there's a jwt token in the response
                 let user = response.json();
                 console.log(user)
@@ -43,6 +57,18 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
+    }
+
+     private encodeParams(params: any): string {
+        let body: string = "";
+        for (const key in params) {
+            if (body.length) {
+                body += "&";
+            }
+            body += key + "=";
+            body += encodeURIComponent(params[key]);
+        }
+        return body;
     }
 
 }
