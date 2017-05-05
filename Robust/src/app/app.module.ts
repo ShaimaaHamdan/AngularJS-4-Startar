@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 //import services
-import { AuthenticationService, UserService,NotificationService } from './services/services';
+import { AuthenticationService, UserService,NotificationService,CommonService } from './services/services';
 
 //import guards
 import { AuthGuard } from './guards/guards';
@@ -41,6 +41,7 @@ import { BaseRequestOptions } from '@angular/http';
     AuthenticationService,
     UserService,
     NotificationService,
+    CommonService,
 
        // providers used to create fake backend
         fakeBackendProvider,

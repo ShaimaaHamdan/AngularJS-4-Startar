@@ -12,7 +12,9 @@ import 'rxjs/add/operator/map';
 export class AppSetting {
 
   // we will using task to replace this url
+  // public static apiendpoint = 'http://jobfair.tmentorslabs.com';
   public static apiendpoint = 'http://localhost:63517';
+  public static realapiendpoint = 'http://localhost:63717/api';
   public static mocktestapi = false;
 
 }

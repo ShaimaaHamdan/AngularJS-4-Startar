@@ -205,7 +205,11 @@
 
         <ul class="nav" id="side-menu">
             <li class="active">
-                <a  [routerLink]="''"> <span class="nav-label">Dashboard</span> <span class="label label-success pull-right">v.1</span> </a>
+                <a [routerLink]="''"> <span class="nav-label">Dashboard</span> <span class="label label-success pull-right">v.1</span> </a>
+                <a (click)=testApiWithToken()> <span class="nav-label">Test Values API</span> </a>
+                <ul>
+                    <li  *ngFor="let el of list">{{el.type}}-{{el.value}}</li>
+                </ul>
             </li>
         </ul>
     </div>
@@ -222,7 +226,7 @@
                 </h2>
 
                 <p>
-                
+
                 </p>
             </div>
         </div>
