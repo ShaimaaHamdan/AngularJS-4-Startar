@@ -16,7 +16,6 @@ export class CommonService {
   }
 
   getAllValues() {
-
     var getAllApiUrl = `${this.realApiUrl}/values`;
     return this.http.get(getAllApiUrl, this.getJwtHeaderToken()).map((response: Response) => response.json());
   }
