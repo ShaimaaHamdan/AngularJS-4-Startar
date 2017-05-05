@@ -19,8 +19,8 @@ import { SignupComponent } from './components/signup/signup.component';
 
 //Those for testing purpose
 // used to create fake backend
-import { fakeBackendProvider } from './fakeTest/fake.backend';
-import { MockBackend, MockConnection } from '@angular/http/testing';
+//import { fakeBackendProvider } from './fakeTest/fake.backend';
+//import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BaseRequestOptions } from '@angular/http';
 
 @NgModule({
@@ -44,8 +44,8 @@ import { BaseRequestOptions } from '@angular/http';
     CommonService,
 
        // providers used to create fake backend
-        fakeBackendProvider,
-        MockBackend,
+       // fakeBackendProvider,
+       // MockBackend,
         BaseRequestOptions
     ],
   bootstrap: [AppComponent]

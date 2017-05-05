@@ -13,8 +13,11 @@ export class AppSetting {
 
   // we will using task to replace this url
   // public static apiendpoint = 'http://jobfair.tmentorslabs.com';
-  public static apiendpoint = 'http://localhost:63517';
-  public static realapiendpoint = 'http://localhost:63717/api';
+  // public static apiendpoint = 'http://localhost:63517';
+  // public static realapiendpoint = 'http://localhost:63717/api';
+  
+  public static apiendpoint = 'http://52.166.73.135';
+  public static realapiendpoint = 'http://52.166.76.143/api';
   public static mocktestapi = false;
 
 }
