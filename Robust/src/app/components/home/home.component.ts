@@ -9,12 +9,12 @@ import { CommonService, NotificationService } from '../../services/services';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  currentUser: User;
+  //currentUser: User;
   list : object[]= []
   loading = false;
   constructor(private commonService: CommonService,
     private notificationService: NotificationService) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    //this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {

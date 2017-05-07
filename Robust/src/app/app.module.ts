@@ -17,6 +17,9 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { SignupComponent } from './components/signup/signup.component';
 
+import { AuthModule } from './auth.module';
+import { OidcSecurityService } from './services/authentication/oidc.security.service';
+
 //Those for testing purpose
 // used to create fake backend
 //import { fakeBackendProvider } from './fakeTest/fake.backend';
@@ -34,7 +37,9 @@ import { BaseRequestOptions } from '@angular/http';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    AuthModule.forRoot()
+
   ],
   providers: [ 
     AuthGuard,
@@ -42,6 +47,7 @@ import { BaseRequestOptions } from '@angular/http';
     UserService,
     NotificationService,
     CommonService,
+    OidcSecurityService,
 
        // providers used to create fake backend
        // fakeBackendProvider,
