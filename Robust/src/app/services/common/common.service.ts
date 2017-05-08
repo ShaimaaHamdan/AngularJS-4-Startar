@@ -22,10 +22,10 @@ export class CommonService {
 
   private getJwtHeaderToken() {
     // create authorization header with jwt token
-    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    console.log(currentUser)
-    if (currentUser && currentUser.access_token) {
-      let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.access_token });
+    let token = JSON.parse(localStorage.getItem('authorizationData'));
+    console.log(token)
+    if (token) {
+      let headers = new Headers({ 'Authorization': 'Bearer ' + token });
       return new RequestOptions({ headers: headers });
     }
   }

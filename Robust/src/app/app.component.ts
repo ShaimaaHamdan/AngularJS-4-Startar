@@ -12,14 +12,11 @@ export class AppComponent implements OnInit {
   title = 'app works Test!';
 
   constructor(public securityService: OidcSecurityService) {
+      //this.securityService.AuthorizedCallback();
   }
 
   ngOnInit() {
-    console.log('ngOnInit _securityService.AuthorizedCallback');
-
-    if (window.location.hash) {
-      this.securityService.AuthorizedCallback();
-    }
+    console.log('ngOnInit _securityService.AuthorizedCallback\n\n ');
   }
   public Login() {
     console.log('Do login logic');

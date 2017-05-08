@@ -196,6 +196,7 @@ export class OidcSecurityService {
                     }
                 }
 
+                console.log(authResponseIsValid)
                 if (authResponseIsValid) {
                     this.SetAuthorizationData(token, id_token);
                     console.log(this.retrieve('authorizationData'));
@@ -204,7 +205,8 @@ export class OidcSecurityService {
                     this._router.navigate(['/dataeventrecords/list']);
                 } else {
                     this.ResetAuthorizationData();
-                    this._router.navigate(['/Unauthorized']);
+                    //this._router.navigate(['/Unauthorized']);
+                    this.Authorize();
                 }
             });
     }

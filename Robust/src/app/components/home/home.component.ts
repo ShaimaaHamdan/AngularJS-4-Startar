@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/models';
-import { CommonService, NotificationService } from '../../services/services';
+import { CommonService, NotificationService} from '../../services/services';
 
 
 @Component({
@@ -9,12 +9,11 @@ import { CommonService, NotificationService } from '../../services/services';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  //currentUser: User;
   list : object[]= []
   loading = false;
   constructor(private commonService: CommonService,
     private notificationService: NotificationService) {
-    //this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
   }
 
   ngOnInit() {

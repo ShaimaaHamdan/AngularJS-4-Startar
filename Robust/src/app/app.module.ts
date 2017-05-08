@@ -16,6 +16,7 @@ import { routing }        from './app.routing';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 
 import { AuthModule } from './auth.module';
 import { OidcSecurityService } from './services/authentication/oidc.security.service';
@@ -31,7 +32,8 @@ import { BaseRequestOptions } from '@angular/http';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    SignupComponent
+    SignupComponent,
+    UnauthorizedComponent
   ],
   imports: [
     BrowserModule,
